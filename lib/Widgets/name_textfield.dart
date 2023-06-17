@@ -13,7 +13,12 @@ Widget nameTextField(
       if (value!.isEmpty) {
         return "Field is Empty";
       }
-      validate(value);
+      bool nameValid = RegExp(r"^[a-zA-Z]+$").hasMatch(value);
+
+      if (!nameValid) {
+        print("calling this method");
+        return "Please enter valid Name";
+      }
       return null;
     },
     onChanged: (value) {
